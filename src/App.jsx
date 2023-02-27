@@ -1,11 +1,14 @@
 import Navbar from "./components/Navbar"
+import HomePage from "./Pages/Homepage"
 
 function App() {
 
   return (
     <>
     <Navbar/>
-    <h2>123456</h2>
+    <div className="main">
+    <HomePage />
+    </div>
     </>
   )
 }

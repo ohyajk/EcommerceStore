@@ -1,10 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: #EEEEEE;
   color: #222831;
-  --nav-bg: #00ADB5;
+}
+
+.ico-anim {
+  animation-iteration-count: 1;
+}
+.nav {
+  background-color: #222831;
+  color: white;
+}
+
+.tealbg {
+  background-color: #00ADB5;
+}
+
+.usr {
+  text-decoration-color: #00ADB5;
 }

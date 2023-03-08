@@ -1,9 +1,12 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import React, { useState } from 'react'
+import Cart from './Cart'
+import BlurBg from './BlurBg'
 
 const Navbar = () => {
 
-    const [show, setShow] = useState(false)
+    const [show, setShow] = useState(false) // Hamburger menu
+    const [showCart, setShowCart] = useState(false) // Cart menu
 
     if(show) {
         document.body.style.overflow = 'hidden'
@@ -29,18 +32,20 @@ const Navbar = () => {
                     </div>
                 </nav>
                     <AnimatePresence>
-                        <motion.ul variants={{ up: { x: 0 , transition: { type: 'spring', duration: 0.5, delay: 0 } }, stop: { x: 10,  }, }} animate={show ? 'up' : 'stop'} className={show ? 'absolute top-0 right-0 h-[100vh] w-[80vw] bg-[#00ADB5] flex flex-col justify-start items-center gap-8 pt-20' : 'hidden'} >
+                    <BlurBg func={() => setShow(false)} state={show} />
+                        <motion.ul  variants={{ up: { x: 0 , transition: { type: 'spring', duration: 0.5, delay: 0 } }, stop: { x: 10,  }, }} animate={show ? 'up' : 'stop'} className={show ? 'z-100 absolute top-0 right-0 h-[100vh] w-1/2 md:w-1/3 bg-[#00ADB5] flex flex-col justify-start items-center gap-8 pt-20' : 'hidden'} >
                     <div className='absolute top-[30px] right-[28px]' >
                         <i onClick={() => setShow(!show)} className="fa-solid fa-xmark fa-lg fa-spin fa-spin-reverse "></i>
                     </div>
                             <div className='flex gap-2' >
                             <i className="fa-solid fa-user fa-lg cursor-pointer"></i>
-                            <i class="fa-solid fa-cart-shopping fa-lg cursor-pointer"></i>
+                            <i onClick={() => setShowCart(!showCart)} className="fa-solid fa-cart-shopping fa-lg cursor-pointer"></i>
                             </div>
                             <li className=''>Home</li>
                             <li className=''>Home</li>
                             <li className=''>Home</li>
                             <li className=''>Home</li>
+                            
                         </motion.ul>
                     </AnimatePresence>
             </header>
@@ -58,15 +63,15 @@ const Navbar = () => {
                         <ul  className='flex justify-center items-center gap-8' >
                             <div className='flex justify-center items-center gap-4'>
                                 <div className='px-2 py-1 flex items-center gap-2 cursor-pointer' >
-                                    <i class="fa-solid fa-house fa-lg cursor-pointer"></i>
+                                    <i className="fa-solid fa-house fa-lg cursor-pointer"></i>
                                     <span className='underline underline-offset-4 usr'>Home</span>
                                 </div>
                                 <div className='px-2 py-1 flex items-center gap-2 cursor-pointer' >
-                                    <i class="fa-solid fa-store fa-lg cursor-pointer"></i>
+                                    <i className="fa-solid fa-store fa-lg cursor-pointer"></i>
                                     <span className='underline underline-offset-4 usr'>Categories</span>
                                 </div>
-                                <div className='px-2 py-1 flex items-center gap-2 cursor-pointer relative' >
-                                    <i class="fa-solid fa-cart-shopping fa-lg cursor-pointer"></i>
+                                <div onClick={() => setShowCart(!showCart)} className='px-2 py-1 flex items-center gap-2 cursor-pointer relative' >
+                                    <i className="fa-solid fa-cart-shopping fa-lg cursor-pointer"></i>
                                     <span className='underline underline-offset-4 usr'>Cart</span>
                                     <span className='text-white bg-[#00ADB5] px-1 rounded-full text-sm' >0</span>
                                 </div>
@@ -78,6 +83,14 @@ const Navbar = () => {
                         </ul>
                 </nav>
             </header>
+
+            {/* Cart */}
+
+            { showCart ? <Cart func={() => setShowCart(!showCart)} /> : ''}
+            { showCart ? <BlurBg func={() => setShowCart(false)} state={showCart} /> : ''}
+
+            {/* Account */}
+
         </>
     )
 }

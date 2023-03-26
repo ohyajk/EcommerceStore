@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import {useSelector} from 'react-redux'
 import Cart from './Cart'
 import BlurBg from './BlurBg'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
 
@@ -66,11 +67,11 @@ const Navbar = () => {
                             <div className='flex justify-center items-center gap-4'>
                                 <div className='px-2 py-1 flex items-center gap-2 cursor-pointer' >
                                     <i className="fa-solid fa-house fa-lg cursor-pointer"></i>
-                                    <span className='underline underline-offset-4 usr'>Home</span>
+                                    <span className='underline underline-offset-4 usr'><Link to='/'>Home</Link></span>
                                 </div>
                                 <div className='px-2 py-1 flex items-center gap-2 cursor-pointer' >
                                     <i className="fa-solid fa-store fa-lg cursor-pointer"></i>
-                                    <span className='underline underline-offset-4 usr'>Categories</span>
+                                    <span className='underline underline-offset-4 usr'><Link to='/product'>Categories</Link></span>
                                 </div>
                                 <div onClick={() => setShowCart(!showCart)} className='px-2 py-1 flex items-center gap-2 cursor-pointer relative' >
                                     <i className="fa-solid fa-cart-shopping fa-lg cursor-pointer"></i>
@@ -79,7 +80,7 @@ const Navbar = () => {
                                 </div>
                                 <div className='px-2 py-1 flex items-center gap-2 cursor-pointer' >
                                     <i className="fa-solid fa-user fa-lg cursor-pointer"></i>
-                                    <span className='underline underline-offset-4 usr'>User</span>
+                                    <span className='underline underline-offset-4 usr'><Link to='/login'>User</Link></span>
                                 </div>
                             </div>
                         </ul>

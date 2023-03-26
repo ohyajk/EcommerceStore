@@ -1,6 +1,10 @@
 import React from 'react'
+import { useDispatch} from 'react-redux';
+import { increment } from '../store/cartSlice/cartSlice';
 
 const Product = () => {
+
+  const dispatch = useDispatch()
 
   return (
     <section className='flex justify-center items-center'>
@@ -25,7 +29,7 @@ const Product = () => {
           <p className="max-w-[400px]" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, iure. Error nobis et adipisci neque ea reprehenderit</p>
           <div className='flex items-center justify-start gap-4 py-4'>
             <span className='flex items-center gap-2 py-2  px-4 border-2 border-black/20'><i className="fa-solid fa-minus"></i> 1 <i className="fa-solid fa-plus"></i></span>
-            <button className='bg-[#00ADB5] py-2 px-8 text-white'>Add to Cart</button>
+            <button onClick={() => dispatch(increment())} className='bg-[#00ADB5] py-2 px-8 text-white'>Add to Cart</button>
           </div>
         </div>
       </div>

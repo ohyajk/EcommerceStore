@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import React, { useState } from 'react'
+import {useSelector} from 'react-redux'
 import Cart from './Cart'
 import BlurBg from './BlurBg'
 
@@ -7,6 +8,7 @@ const Navbar = () => {
 
     const [show, setShow] = useState(false) // Hamburger menu
     const [showCart, setShowCart] = useState(false) // Cart menu
+    const counter = useSelector((state) => state.cart);
 
     if(show) {
         document.body.style.overflow = 'hidden'
@@ -73,7 +75,7 @@ const Navbar = () => {
                                 <div onClick={() => setShowCart(!showCart)} className='px-2 py-1 flex items-center gap-2 cursor-pointer relative' >
                                     <i className="fa-solid fa-cart-shopping fa-lg cursor-pointer"></i>
                                     <span className='underline underline-offset-4 usr'>Cart</span>
-                                    <span className='text-white bg-[#00ADB5] px-1 rounded-full text-sm' >0</span>
+                                    <span className='text-white bg-[#00ADB5] px-1 rounded-full text-sm' >{counter}</span>
                                 </div>
                                 <div className='px-2 py-1 flex items-center gap-2 cursor-pointer' >
                                     <i className="fa-solid fa-user fa-lg cursor-pointer"></i>

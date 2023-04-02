@@ -34,7 +34,7 @@ const Footer = () => {
             </div>
             </div>
             <div className="w-full flex justify-center items-center my-4" >
-                <span>Made with ❤️ by Jitender Kumar</span>
+                <span>Made with ❤️ by <a className="text-amber-400" href="https://github.com/ohyajk" target="_blank">Jitender Kumar</a> & <a className="text-amber-400" href="https://github.com/gauravgangwarweb" target="_blank">Gaurav Gangwar</a></span>
             </div>
         </div>
     )

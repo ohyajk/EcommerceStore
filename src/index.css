@@ -8,6 +8,8 @@
   font-family: 'Roboto', sans-serif;
   background-color: #EEEEEE;
   color: #222831;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .ico-anim {
@@ -25,3 +27,16 @@
 .usr {
   text-decoration-color: #00ADB5;
 }
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #007d84;
+  border-radius: 20px;
+  background-clip: content-box;
+} 

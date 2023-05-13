@@ -8,7 +8,7 @@ import Homepage from "./Pages/Homepage"
 import Product from "./Pages/Product"
 import Cart from "./Pages/Cart"
 import Login from "./Pages/Login"
-import Error from "./components/Error"
+import Error from "./Pages/Error"
 import { fetchProduct } from "./store/productSlice/productSlice";
 
 const WithoutNavFooter = () => {
@@ -48,7 +48,7 @@ function App() {
         <Route element={<WithNavFooter />}>
           <Route path="/" element={<Homepage />} />
           <Route path="/product/:id" element={<Product />} />
-          <Route path="/cart" element={<Cart/> } />
+          <Route path="/cart" element={<Cart/>} />
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>
